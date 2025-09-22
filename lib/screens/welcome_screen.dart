@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learning_app_ui/components/primary_button.dart';
+import 'package:learning_app_ui/screens/login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -40,7 +41,16 @@ class WelcomeScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 8),
-              PrimaryButton(size: size, text: 'Start Learning'),
+              PrimaryButton(
+                size: size,
+                text: 'Start Learning',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+              ),
             ],
           ),
         ),
