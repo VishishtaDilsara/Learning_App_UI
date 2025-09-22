@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:learning_app_ui/components/app_button.dart';
 import 'package:learning_app_ui/components/primary_button.dart';
+import 'package:learning_app_ui/screens/my_classes.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -12,12 +13,22 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        centerTitle: true,
+
         title: Text(
           'LOG IN',
-          style: TextStyle(fontSize: 18, color: Colors.purple),
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.purple,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        leading: Icon(Icons.arrow_back_ios_rounded),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(Icons.arrow_back_ios_rounded, color: Colors.purple),
+        ),
       ),
       body: Center(
         child: Padding(
@@ -102,7 +113,12 @@ class LoginScreen extends StatelessWidget {
               PrimaryButton(
                 size: size,
                 text: 'Login with your account',
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyClasses()),
+                  );
+                },
               ),
               SizedBox(height: 15),
               RichText(
